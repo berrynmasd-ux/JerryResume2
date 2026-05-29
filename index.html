@@ -30,7 +30,7 @@
             margin: 0 auto;
             background-color: var(--bg-dark);
             border: 1px solid var(--border-color);
-            min-height: 22in; /* For multi-page length */
+            min-height: 22in;
         }
 
         .sidebar {
@@ -74,19 +74,21 @@
         .job-title { font-weight: bold; color: #fff; font-size: 1.1rem; }
         .company-name { color: var(--accent); margin-bottom: 10px; font-weight: 600; font-size: 0.95rem; }
 
-        /* Print Page Break Support */
+        /* PRINT STYLES - FORCED DARK MODE */
         @media print {
-            body { background: white; color: black; padding: 0; }
-            .resume-container { border: none; box-shadow: none; width: 100%; }
-            .sidebar { background-color: #f8fafc !important; color: black !important; }
-            .sidebar td { color: #333 !important; }
-            .sidebar td:first-child { color: black !important; }
-            .main-content { background: white !important; }
-            h1, h3, .section-title { color: black !important; border-color: #ccc !important; }
-            .pill { background: #eee !important; color: black !important; border: 1px solid #ccc !important; }
-            .job-title { color: black !important; }
-            li { color: #333 !important; }
-            * { -webkit-print-color-adjust: exact !important; }
+            body { 
+                background-color: var(--bg-dark) !important; 
+                -webkit-print-color-adjust: exact !important; 
+                print-color-adjust: exact !important; 
+            }
+            .resume-container { border: none !important; box-shadow: none !important; background-color: var(--bg-dark) !important; }
+            .sidebar { background-color: var(--bg-panel) !important; color: #f8fafc !important; }
+            .main-content { background-color: var(--bg-dark) !important; color: #f8fafc !important; }
+            h1, h2, h3, .section-title { color: #fff !important; border-color: var(--border-color) !important; }
+            td, li, p, .company-name { color: #cbd5e1 !important; }
+            td:first-child { color: #fff !important; }
+            .pill { background: #1e293b !important; color: #93c5fd !important; border: 1px solid #3b82f6 !important; }
+            .job-title { color: #fff !important; }
         }
     </style>
 </head>
@@ -127,7 +129,7 @@
 
     <div class="main-content">
         <h3>Professional Profile</h3>
-        <p>Accomplished Civil Engineering professional (E.I.T.) with 16 years of heavy highway, bridge, and infrastructure experience. Combining a rigorous 12-year foundation as a Master Bridge Carpenter with a formal B.S. in Civil Engineering to deliver unparalleled constructability insights, structural integrity, and forensic oversight. Proven track record overseeing complex post-tensioning bridge erections, deep foundation excavations, and underwater substructure placements. Seeking an Assistant Resident Engineer or Senior Inspection role on the East Coast to leverage deep field expertise in driving infrastructure safety and longevity.</p>
+        <p>Accomplished Civil Engineering professional (E.I.T.) with 16 years of heavy highway, bridge, and infrastructure experience. Combining a rigorous 12-year foundation as a Master Bridge Carpenter with a formal B.S. in Civil Engineering to deliver unparalleled constructability insights, structural integrity, and forensic oversight. Proven track record overseeing complex post-tensioning bridge erections, deep foundation excavations, and underwater substructure placements. Seeking an Assistant Resident Engineer or Senior Inspector role on the East Coast to leverage deep field expertise in driving infrastructure safety and longevity.</p>
 
         <h3>Core Competencies</h3>
         <div class="pill-container">
@@ -145,18 +147,18 @@
         <div class="job-title">Project Supervisor / Lead Structural Inspector (E.I.T.)</div>
         <div class="company-name">Consultant Engineering Inc. (CEI) | ADOT I-40 / US 93 West Kingman</div>
         <ul>
-            <li><strong>Structural Oversight:</strong> Spearheaded night-shift structural inspections for massive earthwork, subsurface drainage, and complex box culvert installations.</li>
-            <li><strong>Quality Assurance:</strong> Evaluated foundational elements, structural concrete, and deep excavations—applying strict ADOT standards to ensure baseline structural integrity.</li>
-            <li><strong>Site Management:</strong> Managed rigorous construction administration, including RFI review, drafting change orders, approving pay estimates, and mentor/training junior staff to ensure project schedules were met.</li>
-            <li><strong>Forensic Foundation:</strong> Monitored subsurface conditions, rock removal, and utility installations, identifying early warning signs of scour and settlement.</li>
+            <li>Spearheaded night-shift structural inspections for massive earthwork, subsurface drainage, and complex box culvert installations.</li>
+            <li>Evaluated foundational elements and deep excavations, ensuring compliance with ADOT structural integrity standards.</li>
+            <li>Managed construction administration including RFI management, pay estimates, and concrete quality control.</li>
+            <li>Monitored subsurface conditions, rock removal, and utility installations, identifying early warning signs of scour and settlement.</li>
         </ul>
 
         <div class="job-title" style="margin-top:20px;">Structures Inspector</div>
         <div class="company-name">KYTC Bert T Combs Mountain Parkway & US-460 Frenchburg Projects</div>
         <ul>
-            <li><strong>Post-Tension Specialists:</strong> Managed QA for the construction of <strong>eight new twin post-tension bridges</strong> and a massive new post-tension bridge over Beaver Creek.</li>
-            <li><strong>Precision & Compliance:</strong> Enforced exacting KYTC state standards during complex bridge erections, monitoring structural load paths and geometry—providing a highly trained eye for identifying stress, corrosion, and structural fatigue.</li>
-            <li><strong>Infrastructure Impact:</strong> Oversaw 4.16 miles of roadway redesign and 2.3 miles of widening, ensuring structural compliance across complex earthwork operations.</li>
+            <li>Managed QA for the construction of <strong>eight new twin post-tension bridges</strong> and a massive bridge over Beaver Creek.</li>
+            <li>Enforced KYTC state standards during bridge erections, ensuring precision in structural load paths and bridge geometry.</li>
+            <li>Managed 4.16 miles of roadway redesign and widening, ensuring structural compliance across complex earthwork operations.</li>
         </ul>
 
         <h3>Foundation in Heavy Civil & Substructure</h3>
