@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerry Montgomery - In-Service & Underwater Inspection Resume</title>
+    <title>Jerry Montgomery - In-Service & Underwater Inspection</title>
     <style>
         :root {
-            --sidebar-bg: #1e293b;
-            --sidebar-text: #f8fafc;
-            --main-bg: #ffffff;
-            --main-text: #334155;
+            /* Midnight Slate Palette */
+            --bg-dark: #0f172a;
+            --bg-panel: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
             --accent: #3b82f6;
-            --timeline-border: #e2e8f0;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --border-color: #334155;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,81 +24,103 @@
         }
 
         body {
-            background-color: #f1f5f9;
-            color: var(--main-text);
+            background-color: #0b1120;
+            color: var(--text-main);
             line-height: 1.6;
+            /* Geometric SVG Background */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255,255,255,0.03) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.04) 0%, transparent 25%);
         }
 
-        /* Responsive Flexbox Layout */
         .resume-container {
             display: flex;
-            max-width: 1050px;
-            margin: 20px auto;
-            background: var(--main-bg);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            min-height: 11in;
+            max-width: 1100px;
+            margin: 30px auto;
+            background-color: var(--bg-dark);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Dark Sidebar */
+        /* SVG Top Accent Line */
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, #60a5fa 100%);
+            z-index: 10;
+        }
+
+        /* Left Sidebar (Darker Panel) */
         .sidebar {
             width: 32%;
-            background-color: var(--sidebar-bg);
-            color: var(--sidebar-text);
-            padding: 40px 30px;
+            background-color: var(--bg-panel);
+            padding: 45px 35px;
+            border-right: 1px solid var(--border-color);
         }
 
-        /* Headshot Styling - Centered and Enlarged */
-        .headshot-container {
-            text-align: center; /* Centered as requested */
+        /* Profile Headshot */
+        .profile-container {
+            text-align: center;
             margin-bottom: 25px;
         }
-        
+
         .headshot {
-            width: 190px; /* Enlarged from 150px */
-            height: 190px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Light Main Content */
-        .main-content {
-            width: 68%;
-            background-color: var(--main-bg);
-            padding: 40px 50px;
+            box-shadow: 0 0 20px var(--accent-glow);
+            background-color: var(--bg-dark);
         }
 
         h1 {
-            font-size: 2.2rem; /* Slightly adjusted to fit full name elegantly */
-            color: var(--main-bg);
+            font-size: 2.2rem;
+            color: #ffffff;
             margin-bottom: 5px;
             line-height: 1.1;
-            text-align: center; /* Centers the name neatly under the photo */
+            text-align: center;
+            letter-spacing: -0.5px;
         }
 
         h2 {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            font-weight: 400;
-            margin-bottom: 30px;
+            font-size: 1.05rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 35px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        h3 {
-            color: var(--sidebar-bg);
-            border-bottom: 2px solid var(--accent);
+        /* Sidebar Sections */
+        .sidebar-section-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+        .icon {
+            vertical-align: middle;
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
         }
 
-        /* Clean Professional HTML Tables for Sidebar */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -105,111 +129,140 @@
         }
         
         td {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             vertical-align: top;
+            color: var(--text-muted);
         }
 
         td:first-child {
-            font-weight: bold;
+            font-weight: 600;
             width: 45%;
             color: #cbd5e1;
             padding-right: 10px;
         }
 
-        .sidebar-section-title {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            margin-top: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Structured Timeline */
-        .timeline {
-            border-left: 2px solid var(--timeline-border);
-            padding-left: 20px;
-            margin-bottom: 20px;
+        /* Main Content Area */
+        .main-content {
+            width: 68%;
+            padding: 45px 50px;
             position: relative;
         }
 
-        .timeline-item {
+        h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
             margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .pill {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 6px 14px;
+            border-radius: 4px; /* Boxier look for Midnight Slate */
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Timeline / Experience */
+        .timeline {
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
             position: relative;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27px;
+            left: -6px;
             top: 5px;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: var(--accent);
-            border: 2px solid var(--main-bg);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         .job-title {
             font-weight: bold;
             font-size: 1.15rem;
-            color: var(--sidebar-bg);
+            color: #ffffff;
         }
 
         .company-name {
             font-weight: 600;
             color: var(--accent);
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-size: 0.95rem;
         }
 
         ul {
             margin-left: 20px;
-            margin-top: 8px;
+            color: var(--text-muted);
         }
 
         li {
-            margin-bottom: 6px;
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
-        /* Modern Skill Tags (Pills) */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
+        li strong {
+            color: #cbd5e1;
         }
 
-        .pill {
-            background-color: #e2e8f0;
-            color: var(--sidebar-bg);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+        /* Print formatting */
+        @media print {
+            body {
+                background-color: var(--bg-dark);
+                -webkit-print-color-adjust: exact;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                border: none;
+            }
         }
 
-        /* SVG Icons Integration */
-        .icon {
-            vertical-align: middle;
-            margin-right: 8px;
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
-        /* Media Queries for Mobile Stacking */
+        /* Mobile Stacking */
         @media (max-width: 768px) {
             .resume-container {
                 flex-direction: column;
                 margin: 0;
+                border-radius: 0;
             }
             .sidebar, .main-content {
                 width: 100%;
+                border-right: none;
             }
         }
     </style>
@@ -218,15 +271,15 @@
 
 <div class="resume-container">
     <div class="sidebar">
-        <div class="headshot-container">
-            <img src="Jerry_Headshot.jpg" alt="Jerry Montgomery" class="headshot">
+        <div class="profile-container">
+            <img src="Jerry_Headshot.jpg" alt="Jerry Montgomery" class="headshot" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 160 160\'><rect width=\'160\' height=\'160\' fill=\'%231e293b\'/><circle cx=\'80\' cy=\'65\' r=\'30\' fill=\'%23334155\'/><path d=\'M30 140 Q 80 90 130 140\' stroke=\'%23334155\' stroke-width=\'10\' fill=\'none\'/></svg>'">
         </div>
 
         <h1>Jerry Montgomery</h1>
-        <h2>Structural & Underwater Bridge Inspector | E.I.T.</h2>
+        <h2>Structural & Underwater Inspector | E.I.T.</h2>
 
         <div class="sidebar-section-title">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Contact
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Contact Information
         </div>
         <table>
             <tr>
@@ -235,7 +288,7 @@
             </tr>
             <tr>
                 <td>Email</td>
-                <td>Jmo335@mail.com</td>
+                <td>Jmo333@mail.com</td>
             </tr>
             <tr>
                 <td>Phone</td>
@@ -289,10 +342,14 @@
     </div>
 
     <div class="main-content">
-        <h3>Professional Profile</h3>
+        <div class="section-header">
+            <h3>Professional Profile</h3>
+        </div>
         <p>Civil Engineering Professional (E.I.T.) with 16 years of heavy highway and bridge infrastructure experience, transitioning into specialized in-service and underwater bridge inspections. Uniquely pairs a formal B.S. in Civil Engineering with a rigorous 12-year foundation as a Master Bridge Carpenter. Having personally executed underwater concrete-form placements, deep foundations, and post-tension bridge erections, I possess an unparalleled, "boots-on-the-ground" ability to identify structural deficiencies and constructability flaws. Currently pursuing my P.E. License and Commercial Diver’s License to evaluate fracture-critical and underwater bridge elements on the East Coast.</p>
         
-        <h3>Core Competencies</h3>
+        <div class="section-header">
+            <h3>Core Competencies</h3>
+        </div>
         <div class="skills-container">
             <div class="pill">In-Service Bridge Inspection</div>
             <div class="pill">Underwater Substructure Evaluation</div>
@@ -303,7 +360,9 @@
             <div class="pill">Constructability & QA/QC</div>
         </div>
 
-        <h3>Inspection & Engineering Experience</h3>
+        <div class="section-header">
+            <h3>Inspection & Engineering Experience</h3>
+        </div>
         
         <div class="timeline">
             <div class="timeline-item">
