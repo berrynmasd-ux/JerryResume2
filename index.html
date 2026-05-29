@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Montgomery - In-Service & Underwater Inspection Resume</title>
+    <style>
+        :root {
+            --sidebar-bg: #1e293b;
+            --sidebar-text: #f8fafc;
+            --main-bg: #ffffff;
+            --main-text: #334155;
+            --accent: #3b82f6;
+            --timeline-border: #e2e8f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--main-text);
+            line-height: 1.6;
+        }
+
+        /* Responsive Flexbox Layout */
+        .resume-container {
+            display: flex;
+            max-width: 1050px;
+            margin: 20px auto;
+            background: var(--main-bg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            min-height: 11in;
+        }
+
+        /* Dark Sidebar */
+        .sidebar {
+            width: 32%;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 40px 30px;
+        }
+
+        /* Headshot Styling */
+        .headshot-container {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Light Main Content */
+        .main-content {
+            width: 68%;
+            background-color: var(--main-bg);
+            padding: 40px 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--main-bg);
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: var(--sidebar-bg);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Clean Professional HTML Tables for Sidebar */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+        
+        td {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            vertical-align: top;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 45%;
+            color: #cbd5e1;
+            padding-right: 10px;
+        }
+
+        .sidebar-section-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            margin-top: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Structured Timeline */
+        .timeline {
+            border-left: 2px solid var(--timeline-border);
+            padding-left: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--main-bg);
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 1.15rem;
+            color: var(--sidebar-bg);
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Modern Skill Tags (Pills) */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .pill {
+            background-color: #e2e8f0;
+            color: var(--sidebar-bg);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* SVG Icons Integration */
+        .icon {
+            vertical-align: middle;
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Media Queries for Mobile Stacking */
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+                margin: 0;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            .headshot-container {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <div class="sidebar">
+        <div class="headshot-container">
+            <img src="Jerry_Headshot.jpg" alt="Jerry Montgomery" class="headshot">
+        </div>
+
+        <h1>Jerry M.</h1>
+        <h2>Structural & Underwater Bridge Inspector | E.I.T.</h2>
+
+        <div class="sidebar-section-title">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Contact
+        </div>
+        <table>
+            <tr>
+                <td>Location</td>
+                <td>Kingman, AZ<br>(Relocating to East Coast)</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>jerry.m@email.com</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>(555) 123-4567</td>
+            </tr>
+            <tr>
+                <td>Experience</td>
+                <td>16 Years Total<br>(12 Field / 4+ Eng.)</td>
+            </tr>
+        </table>
+
+        <div class="sidebar-section-title">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2.12-1.15V17h2V8.08L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg> Education
+        </div>
+        <table>
+            <tr>
+                <td>Status</td>
+                <td>Finalizing P.E. License</td>
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>B.S. Civil Engineering<br>University of Kentucky</td>
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>A.S. Pre-Engineering</td>
+            </tr>
+        </table>
+
+        <div class="sidebar-section-title">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Certifications
+        </div>
+        <table>
+            <tr>
+                <td>Engineering</td>
+                <td>Engineer in Training (E.I.T.)</td>
+            </tr>
+            <tr>
+                <td>Materials</td>
+                <td>ACI Field Testing Tech<br>ATTI Field Testing Tech<br>KYTC Aggregate Sampling</td>
+            </tr>
+            <tr>
+                <td>Safety/Control</td>
+                <td>OSHA 10-Hour<br>ATSSA TCS & TCT<br>Erosion Control (ECC)</td>
+            </tr>
+            <tr>
+                <td>In Progress</td>
+                <td>Commercial Diver's License (For Underwater Inspection)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main-content">
+        <h3>Professional Profile</h3>
+        <p>Civil Engineering Professional (E.I.T.) with 16 years of heavy highway and bridge infrastructure experience, transitioning into specialized in-service and underwater bridge inspections. Uniquely pairs a formal B.S. in Civil Engineering with a rigorous 12-year foundation as a Master Bridge Carpenter. Having personally executed underwater concrete-form placements, deep foundations, and post-tension bridge erections, I possess an unparalleled, "boots-on-the-ground" ability to identify structural deficiencies and constructability flaws. Currently pursuing my P.E. License and Commercial Diver’s License to evaluate fracture-critical and underwater bridge elements on the East Coast.</p>
+        
+        <h3>Core Competencies</h3>
+        <div class="skills-container">
+            <div class="pill">In-Service Bridge Inspection</div>
+            <div class="pill">Underwater Substructure Evaluation</div>
+            <div class="pill">Post-Tensioned Structures</div>
+            <div class="pill">Concrete Quality Control</div>
+            <div class="pill">Deep Foundations & Scour Analysis</div>
+            <div class="pill">Fracture-Critical Evaluation Prep</div>
+            <div class="pill">Constructability & QA/QC</div>
+        </div>
+
+        <h3>Inspection & Engineering Experience</h3>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="job-title">Project Supervisor / Lead Structural Inspector (E.I.T.)</div>
+                <div class="company-name">Consultant Engineering Inc. (CEI) | ADOT I-40 / US 93 West Kingman Project</div>
+                <ul>
+                    <li>Spearheaded night-shift structural inspections for massive earthwork, subsurface drainage, and complex box culvert installations.</li>
+                    <li>Evaluated foundational elements, structural concrete, and deep excavations—applying strict ADOT standards to ensure baseline structural integrity.</li>
+                    <li>Monitored subsurface conditions, rock removal, and utility installations, building the critical foundation necessary to identify scour, undermining, and settlement during future in-service bridge inspections.</li>
+                    <li>Managed rigorous construction administration, reviewing RFIs, approving pay estimates, and executing meticulous concrete quality control.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Structures Inspector</div>
+                <div class="company-name">KYTC Bert T Combs Mountain Parkway & US-460 Frenchburg Projects</div>
+                <ul>
+                    <li>Managed structural inspection and QA for the construction of <strong>eight new twin post-tension bridges</strong> and a massive new post-tension bridge over Beaver Creek.</li>
+                    <li>Enforced exacting KYTC state standards during complex bridge erections and massive structural concrete placements.</li>
+                    <li>Gained intimate knowledge of post-tensioning systems, structural load paths, and bridge geometry—providing a highly trained eye for identifying stress, corrosion, and structural fatigue required for advanced in-service bridge inspections.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Master Bridge Carpenter (12-Year Foundation)</div>
+                <div class="company-name">Bush and Burchett Incorporated | VA, WV, & KY DOTs</div>
+                <ul>
+                    <li>Executed 12 years of heavy civil trade work, directing complex structural forming, heavy timber framing, and large-scale earthwork excavation across multi-state DOT jurisdictions.</li>
+                    <li><strong>Performed extensive underwater concrete-form placement</strong>, developing a first-hand expertise in how deep-water bridge foundations, footings, and cofferdams are physically constructed.</li>
+                    <li>This deep, tactile understanding of underwater constructability uniquely qualifies me to assess underwater structural integrity, locate hidden defects, and engineer realistic remediation plans as a future diver-engineer.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
